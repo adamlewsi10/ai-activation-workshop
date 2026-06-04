@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HubSpot AI Activation Workshop | BBD Boom</title>
+  <meta name="description" content="A practical, one-day HubSpot AI Activation Workshop — start with AI safely, inside the HubSpot you already pay for. From BBD Boom, HubSpot Elite Partner.">
+
+  <meta property="og:title" content="HubSpot AI Activation Workshop | BBD Boom">
+  <meta property="og:description" content="A practical, one-day workshop. Start with AI safely, inside the HubSpot you already pay for.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://workshop.bbdboom.com/">
+  <meta property="og:image" content="https://workshop.bbdboom.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HubSpot AI Activation Workshop | BBD Boom">
+  <meta name="twitter:description" content="A practical, one-day workshop. Start with AI safely, inside the HubSpot you already pay for.">
+
+  <link rel="icon" href="https://www.bbdboom.com/hubfs/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #1F3864;
+      --navy-deep: #16284A;
+      --blue: #2E75B6;
+      --blue-hover: #245d92;
+      --grey: #595959;
+      --grey-soft: #7a7a7a;
+      --light-blue: #EAF1F8;
+      --light-blue-soft: #F4F8FC;
+      --white: #FFFFFF;
+      --border: rgba(31, 56, 100, 0.10);
+      --shadow-sm: 0 2px 8px rgba(31, 56, 100, 0.06);
+      --shadow-md: 0 12px 32px rgba(31, 56, 100, 0.10);
+      --shadow-lg: 0 24px 60px rgba(31, 56, 100, 0.14);
+      --radius: 14px;
+      --radius-lg: 20px;
+      --nav-height: 72px;
+      --max-width: 1160px;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+
+    body {
+      font-family: var(--font);
+      background: var(--white);
+      color: var(--grey);
+      line-height: 1.65;
+      font-size: 17px;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    h1, h2, h3, h4 {
+      color: var(--navy);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    h1 { font-size: clamp(2.25rem, 5vw, 3.75rem); font-weight: 800; letter-spacing: -0.03em; }
+    h2 { font-size: clamp(1.75rem, 3.4vw, 2.5rem); }
+    h3 { font-size: 1.25rem; font-weight: 600; }
+    p { margin: 0; }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--blue-hover); }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%;
+      height: var(--nav-height);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      display: flex; align-items: center;
+    }
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 32px;
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .logo-mark {
+      width: 32px; height: 32px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 8px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 0.95rem;
+      letter-spacing: 0;
+    }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--navy);
+      color: var(--white);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .nav-cta:hover { background: var(--navy-deep); color: var(--white); transform: translateY(-1px); }
+
+    /* BUTTONS */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--blue);
+      color: var(--white);
+      padding: 16px 32px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 24px rgba(46, 117, 182, 0.28);
+    }
+    .btn-primary:hover {
+      background: var(--blue-hover);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(46, 117, 182, 0.36);
+    }
+    .btn-primary svg { width: 18px; height: 18px; }
+
+    /* SECTIONS */
+    section { padding: 96px 0; position: relative; }
+    section.light-blue { background: var(--light-blue); }
+    section.soft { background: var(--light-blue-soft); }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 18px;
+    }
+    .lead {
+      font-size: 1.18rem;
+      color: var(--grey);
+      line-height: 1.7;
+      max-width: 720px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: calc(var(--nav-height) + 88px) 0 96px;
+      background:
+        radial-gradient(1100px 540px at 85% -10%, rgba(46, 117, 182, 0.10), transparent 60%),
+        radial-gradient(900px 420px at 0% 100%, rgba(31, 56, 100, 0.06), transparent 60%),
+        var(--white);
+      overflow: hidden;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--light-blue);
+      color: var(--navy);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+    }
+    .hero-tag .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
+    .hero h1 { margin-bottom: 22px; }
+    .hero .subhead {
+      font-size: 1.25rem;
+      color: var(--grey);
+      line-height: 1.6;
+      margin-bottom: 36px;
+      max-width: 560px;
+    }
+    .hero-cta-row {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 18px;
+    }
+    .hero-cta-note {
+      font-size: 0.92rem;
+      color: var(--grey-soft);
+      max-width: 360px;
+    }
+
+    /* HERO VISUAL */
+    .hero-visual {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      max-width: 480px;
+      margin-left: auto;
+      justify-self: end;
+    }
+    .hero-card {
+      position: absolute;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 22px 24px;
+      border: 1px solid var(--border);
+    }
+    .hero-card-main {
+      top: 4%; left: 6%;
+      width: 78%;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+      color: var(--white);
+      border: none;
+      z-index: 1;
+    }
+    .hero-card-main .label {
+      font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase;
+      opacity: 0.7; margin-bottom: 12px; font-weight: 600;
+    }
+    .hero-card-main h4 { color: var(--white); font-size: 1.4rem; line-height: 1.3; margin-bottom: 14px; }
+    .hero-card-main .meta { display: flex; gap: 16px; font-size: 0.86rem; opacity: 0.85; }
+    .hero-card-main .meta span { display: inline-flex; align-items: center; gap: 6px; }
+    .hero-card-main .meta svg { width: 14px; height: 14px; }
+
+    .hero-card-stat {
+      bottom: 8%; right: 0;
+      width: 56%;
+      animation: float 6s ease-in-out infinite;
+      z-index: 3;
+    }
+    .hero-card-stat .num {
+      font-size: 2rem; font-weight: 800; color: var(--navy);
+      line-height: 1; margin-bottom: 6px; letter-spacing: -0.03em;
+    }
+    .hero-card-stat .desc {
+      font-size: 0.88rem; color: var(--grey); line-height: 1.4;
+    }
+    .hero-card-mini {
+      top: 52%; left: 0;
+      width: 46%;
+      animation: float 7s ease-in-out infinite reverse;
+      animation-delay: 1s;
+      z-index: 2;
+    }
+    .hero-card-mini .row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .hero-card-mini .row:last-child { margin-bottom: 0; }
+    .hero-card-mini .bar {
+      flex: 1; height: 6px; background: var(--light-blue); border-radius: 999px; overflow: hidden;
+    }
+    .hero-card-mini .bar > i {
+      display: block; height: 100%; background: var(--blue); border-radius: 999px;
+    }
+    .hero-card-mini .check {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--blue); color: var(--white);
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-card-mini .check svg { width: 11px; height: 11px; }
+    .hero-card-mini .lbl {
+      font-size: 0.78rem; color: var(--navy); font-weight: 500;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* REAL TALK */
+    .realtalk { background: var(--white); }
+    .realtalk-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .realtalk h2 { margin-bottom: 0; }
+    .realtalk p {
+      font-size: 1.12rem;
+      line-height: 1.75;
+      color: var(--grey);
+      margin-bottom: 24px;
+    }
+    .realtalk p:last-child { margin-bottom: 0; }
+    .realtalk p strong { color: var(--navy); font-weight: 600; }
+
+    /* WHO IT'S FOR */
+    .whofor {
+      text-align: center;
+    }
+    .whofor h2 { margin: 0 auto 24px; max-width: 760px; }
+    .whofor p { font-size: 1.2rem; max-width: 720px; margin: 0 auto; line-height: 1.7; }
+
+    /* WHAT IT IS — CARDS */
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 56px;
+    }
+    .section-head h2 { margin-bottom: 16px; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(46, 117, 182, 0.3);
+    }
+    .card-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--light-blue);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+    }
+    .card h3 { margin-bottom: 10px; line-height: 1.35; }
+    .card p { font-size: 1rem; line-height: 1.65; color: var(--grey); }
+    .card p strong { color: var(--navy); font-weight: 600; }
+
+    /* SWITCHED ON — FEATURED BLOCK */
+    .switched-on {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .switched-on::before {
+      content: '';
+      position: absolute;
+      top: -20%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(46, 117, 182, 0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .switched-on::after {
+      content: '';
+      position: absolute;
+      bottom: -30%; left: -10%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(234, 241, 248, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .switched-on .container { position: relative; z-index: 1; }
+    .switched-on .eyebrow { color: #8BB6DD; }
+    .switched-on h2 { color: var(--white); max-width: 880px; margin-bottom: 28px; }
+    .switched-on .body-copy {
+      font-size: 1.18rem;
+      line-height: 1.75;
+      max-width: 860px;
+      color: rgba(255, 255, 255, 0.92);
+    }
+    .switched-on .body-copy strong { color: var(--white); font-weight: 700; }
+    .switched-on-flow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 56px;
+    }
+    .flow-step {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      padding: 24px;
+      backdrop-filter: blur(6px);
+    }
+    .flow-step .step-label {
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #8BB6DD;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .flow-step h4 { color: var(--white); font-size: 1.1rem; margin-bottom: 8px; }
+    .flow-step p { font-size: 0.94rem; color: rgba(255, 255, 255, 0.82); line-height: 1.55; }
+
+    /* WALK AWAY — CHECKLIST */
+    .checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 40px;
+      max-width: 1000px;
+    }
+    .checklist-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 4px 0;
+    }
+    .checklist-item .tick {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .checklist-item .tick svg { width: 14px; height: 14px; }
+    .checklist-item p {
+      font-size: 1.05rem;
+      color: var(--grey);
+      line-height: 1.55;
+    }
+    .checklist-item p strong { color: var(--navy); font-weight: 600; }
+
+    /* SAFE PLACE */
+    .safe-place {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .safe-place .icon-tile {
+      width: 64px; height: 64px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 16px;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+    }
+    .safe-place .icon-tile svg { width: 30px; height: 30px; }
+    .safe-place h2 { margin-bottom: 0; }
+    .safe-place p { font-size: 1.12rem; line-height: 1.75; }
+
+    /* WHY BBD */
+    .whybbd { text-align: left; }
+    .whybbd .grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .whybbd p { font-size: 1.12rem; line-height: 1.75; margin-bottom: 24px; }
+    .whybbd p:last-of-type { margin-bottom: 0; }
+    .whybbd p strong { color: var(--navy); font-weight: 600; }
+    .credentials {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+    .credentials h4 {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 24px;
+    }
+    .credentials ul {
+      list-style: none;
+      display: grid;
+      gap: 18px;
+    }
+    .credentials li {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 1rem;
+      color: var(--navy);
+      font-weight: 500;
+    }
+    .credentials li .badge {
+      width: 36px; height: 36px;
+      background: var(--light-blue);
+      color: var(--navy);
+      border-radius: 10px;
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .credentials li .badge svg { width: 18px; height: 18px; }
+
+    /* CLOSING CTA */
+    .closing {
+      background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-blue-soft) 100%);
+      text-align: center;
+    }
+    .closing-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .closing h2 { margin-bottom: 20px; }
+    .closing p {
+      font-size: 1.2rem;
+      color: var(--grey);
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+    .closing .contact {
+      margin-top: 40px;
+      font-size: 0.95rem;
+      color: var(--grey-soft);
+    }
+    .closing .contact strong { color: var(--navy); font-weight: 600; }
+    .closing .contact a { color: var(--blue); }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 48px 0 36px;
+      font-size: 0.92rem;
+    }
+    footer .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 20px;
+    }
+    footer .logo { color: var(--white); }
+    footer .logo .logo-mark { background: var(--white); color: var(--navy); }
+    footer .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+    footer a { color: rgba(255, 255, 255, 0.78); }
+    footer a:hover { color: var(--white); }
+    footer .copyright { font-size: 0.86rem; opacity: 0.6; width: 100%; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 8px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      section { padding: 72px 0; }
+      .hero { padding: calc(var(--nav-height) + 56px) 0 64px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { max-width: 380px; margin: 0 auto; justify-self: center; }
+      .realtalk-grid { grid-template-columns: 1fr; gap: 32px; }
+      .cards { grid-template-columns: 1fr; }
+      .checklist { grid-template-columns: 1fr; }
+      .safe-place { grid-template-columns: 1fr; gap: 40px; }
+      .whybbd .grid { grid-template-columns: 1fr; gap: 40px; }
+      .switched-on-flow { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      body { font-size: 16px; }
+      .container { padding: 0 20px; }
+      .nav-inner { padding: 0 20px; }
+      .nav-cta { padding: 9px 14px; font-size: 0.84rem; }
+      .hero h1 { font-size: 2.1rem; }
+      .hero .subhead { font-size: 1.08rem; }
+      .btn-primary { padding: 14px 26px; font-size: 1rem; }
+      .card { padding: 26px; }
+      .credentials { padding: 24px; }
+      footer .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark">B</span>
+        <span>BBD Boom</span>
+      </a>
+      <a href="https://www.bbdboom.com/meetings/adamlewis/video-call-on-inbound-with-adam-lewis-30-mins?uuid=b78dc4c3-5ce3-4f7b-9e81-1a554194c9f6" class="nav-cta">
+        Book a conversation
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <span class="hero-tag"><span class="dot"></span> HubSpot AI Activation Workshop</span>
+          <h1>Switch on the AI you're already paying for.</h1>
+          <p class="subhead">A practical, one-day HubSpot AI Activation Workshop. Start safely, inside your own portal, with no risk and no runaway bills.</p>
+          <div class="hero-cta-row">
+            <a href="https://www.bbdboom.com/meetings/adamlewis/video-call-on-inbound-with-adam-lewis-30-mins?uuid=b78dc4c3-5ce3-4f7b-9e81-1a554194c9f6" class="btn-primary">
+              Book a quick conversation
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <p class="hero-cta-note">No agenda, no obligation — if it's not useful, we'll tell you.</p>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card hero-card-main">
+            <div class="label">One focused day</div>
+            <h4>Inside your own HubSpot portal.</h4>
+            <div class="meta">
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                1 day
+              </span>
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 9 18l-5-5"/></svg>
+                Hands-on
+              </span>
+            </div>
+          </div>
+          <div class="hero-card hero-card-stat">
+            <div class="num">1 quick win</div>
+            <div class="desc">Identified — and where possible, started — before you leave.</div>
+          </div>
+          <div class="hero-card hero-card-mini">
+            <div class="row">
+              <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span class="lbl">Map AI you already pay for</span>
+            </div>
+            <div class="row">
+              <div class="bar"><i style="width: 72%"></i></div>
+            </div>
+            <div class="row">
+              <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span class="lbl">Pick one real use case</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REAL TALK -->
+  <section class="realtalk">
+    <div class="container">
+      <div class="realtalk-grid">
+        <div>
+          <span class="eyebrow">The real talk</span>
+          <h2>No one's got AI figured out yet.</h2>
+        </div>
+        <div>
+          <p>There are plenty of people with opinions and ideas — but the reality is that when we speak to our customers, most are still feeling their way. There's a lot of talk and not a lot of action, because for many businesses implementing AI just doesn't feel straightforward. There are so many different routes you could go down, it's hard to know which way to turn.</p>
+          <p>That's what this day is for. It's not another AI vendor with its hand out — it's a <strong>practical starting point</strong> that cuts through the noise and helps you make the most of the AI you've already got, in the one place you can experiment without risk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="whofor light-blue">
+    <div class="container">
+      <span class="eyebrow">Who it's for</span>
+      <h2>Teams who know AI matters — and want a sensible place to start.</h2>
+      <p>Teams already on HubSpot who know AI matters, feel the board's pressure to "be doing something," but haven't found a safe, sensible place to start.</p>
+    </div>
+  </section>
+
+  <!-- WHAT IT IS -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What it is</span>
+        <h2>One focused day.</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <span class="card-num">01</span>
+          <h3>Your business, not a feature tour</h3>
+          <p>We start with <strong>your business, not a feature tour</strong> — where are the real, repetitive, expensive jobs AI could take off your team's plate?</p>
+        </div>
+        <div class="card">
+          <span class="card-num">02</span>
+          <h3>Map what you already pay for</h3>
+          <p>We map the <strong>AI you're already paying for</strong> in HubSpot — Breeze, your monthly credits, the first-party agents (Breeze).</p>
+        </div>
+        <div class="card">
+          <span class="card-num">03</span>
+          <h3>Hands-on in your own portal</h3>
+          <p>We get <strong>hands-on in your own portal</strong> — your data, your access controls, a governed environment. We pick one genuine use case and start building it on the day.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">04</span>
+          <h3>What's worth it vs. what's hype</h3>
+          <p>We separate <strong>what's worth it from what's hype</strong> — an honest steer, not a sales pitch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SWITCHED ON -->
+  <section class="switched-on">
+    <div class="container">
+      <span class="eyebrow">A concrete example</span>
+      <h2>What "switched on" looks like.</h2>
+      <p class="body-copy">Turn on the <strong>data agent (Breeze)</strong> to keep your CRM clean at source — deduping, fixing and filling gaps automatically. The payoff isn't tidy data for its own sake: clean records mean your <strong>segments are finally accurate</strong>, which means you can reach people in a way that feels <strong>genuinely personal</strong> instead of generic. That's one agent, one afternoon, and a marketing engine that immediately works better.</p>
+
+      <div class="switched-on-flow">
+        <div class="flow-step">
+          <div class="step-label">Step 01</div>
+          <h4>Turn on the data agent</h4>
+          <p>Breeze deduping, fixing and filling gaps automatically — at source.</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-label">Step 02</div>
+          <h4>Segments get accurate</h4>
+          <p>Clean records mean the lists you've always wanted to trust, finally do.</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-label">Step 03</div>
+          <h4>Reach people personally</h4>
+          <p>A marketing engine that feels genuinely personal — not generic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WALK AWAY -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What you walk away with</span>
+        <h2>Five things you'll leave with.</h2>
+      </div>
+      <div class="checklist">
+        <div class="checklist-item">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <p>A prioritised shortlist of AI use cases mapped to your actual workflows.</p>
+        </div>
+        <div class="checklist-item">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <p>A clear picture of the AI you're already funding — and what's going unused.</p>
+        </div>
+        <div class="checklist-item">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <p>One quick win identified (and where possible, started) before you leave.</p>
+        </div>
+        <div class="checklist-item">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <p>A simple, safe test-and-learn plan you can run inside HubSpot.</p>
+        </div>
+        <div class="checklist-item">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <p>A straight answer for the board on what you're doing with AI.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFE PLACE -->
+  <section class="light-blue">
+    <div class="container">
+      <div class="safe-place">
+        <div>
+          <span class="icon-tile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </span>
+          <span class="eyebrow">Why HubSpot</span>
+          <h2>The safe place to do this.</h2>
+        </div>
+        <div>
+          <p>It's already paid for. It's secure and penetration-tested. It's <strong>your</strong> data with proper access control. You can't blow a surprise credit budget, and your people can't quietly pipe company data through tools nobody's checked. In a Wild West, it's the safe set of hands.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY BBD BOOM -->
+  <section class="whybbd">
+    <div class="container">
+      <div class="grid">
+        <div>
+          <span class="eyebrow">Why BBD Boom</span>
+          <h2>We run it on ourselves first.</h2>
+          <p style="margin-top: 28px;">HubSpot Elite Partner, part of Siloy — Europe's leading HubSpot ecosystem.</p>
+          <p>And we're not theorising: we run the <strong>data agent (Breeze)</strong> on our own CRM to keep our data clean, so we bring what actually works — and what doesn't — into the room with you.</p>
+        </div>
+
+        <div class="credentials">
+          <h4>Credentials</h4>
+          <ul>
+            <li>
+              <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 15 2 2 4-4"/><path d="M21 12c0 5-3.5 7.5-8.5 9.5-5-2-8.5-4.5-8.5-9.5V5l8.5-3 8.5 3z"/></svg></span>
+              HubSpot Elite Partner
+            </li>
+            <li>
+              <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span>
+              Part of Siloy
+            </li>
+            <li>
+              <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+              225+ HubSpot professionals across 9 countries
+            </li>
+            <li>
+              <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></span>
+              2,000+ implementations
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing">
+    <div class="container">
+      <div class="closing-inner">
+        <h2>Find a sensible place to start.</h2>
+        <p>A 20-minute conversation, no agenda. If it's useful, we book the day. If it's not, we'll tell you.</p>
+        <a href="https://www.bbdboom.com/meetings/adamlewis/video-call-on-inbound-with-adam-lewis-30-mins?uuid=b78dc4c3-5ce3-4f7b-9e81-1a554194c9f6" class="btn-primary">
+          Book a quick conversation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <div class="contact">
+          <strong>Adam Lewis</strong>, Commercial Director, BBD Boom · <a href="mailto:adam@bbdboom.com">adam@bbdboom.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="https://www.bbdboom.com" class="logo">
+          <span class="logo-mark">B</span>
+          <span>BBD Boom</span>
+        </a>
+        <div class="footer-links">
+          <a href="https://www.bbdboom.com">bbdboom.com</a>
+          <a href="https://www.bbdboom.com/about">About</a>
+          <a href="https://www.bbdboom.com/contact">Contact</a>
+        </div>
+        <div class="copyright">
+          &copy; <span id="year"></span> BBD Boom. HubSpot Elite Partner, part of Siloy.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
