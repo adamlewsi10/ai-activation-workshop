@@ -181,17 +181,27 @@
       align-items: center;
     }
     .hero-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--light-blue);
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--white);
       color: var(--navy);
-      padding: 8px 14px;
+      padding: 12px 22px 12px 16px;
       border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.82rem;
-      letter-spacing: 0.02em;
-      margin-bottom: 24px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.005em;
+      margin-bottom: 28px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 14px rgba(31, 56, 100, 0.08);
+    }
+    .hero-tag .breeze-mark {
+      width: 26px; height: 26px;
+      flex-shrink: 0;
     }
     .hero-tag .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
+    @media (max-width: 560px) {
+      .hero-tag { font-size: 0.92rem; padding: 10px 16px 10px 12px; gap: 10px; }
+      .hero-tag .breeze-mark { width: 22px; height: 22px; }
+    }
     .hero h1 { margin-bottom: 22px; }
     .hero .subhead {
       font-size: 1.25rem;
@@ -349,6 +359,56 @@
     .card h3 { margin-bottom: 10px; line-height: 1.35; }
     .card p { font-size: 1rem; line-height: 1.65; color: var(--grey); }
     .card p strong { color: var(--navy); font-weight: 600; }
+
+    /* AGENT SHOWCASE */
+    .agents {
+      background: var(--light-blue);
+    }
+    .agent-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .agent-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: flex; flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .agent-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .agent-card .thumb {
+      aspect-ratio: 16 / 10;
+      background: var(--light-blue-soft);
+      overflow: hidden;
+      position: relative;
+    }
+    .agent-card .thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .agent-card .body {
+      padding: 24px 26px 28px;
+      display: flex; flex-direction: column; gap: 10px;
+      flex: 1;
+    }
+    .agent-card .agent-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      font-weight: 600;
+    }
+    .agent-card .agent-label img { width: 16px; height: 16px; }
+    .agent-card h3 { color: var(--navy); font-size: 1.2rem; font-weight: 700; }
+    .agent-card p { font-size: 0.98rem; color: var(--grey); line-height: 1.6; margin: 0; }
 
     /* SWITCHED ON — FEATURED BLOCK */
     .switched-on {
@@ -554,6 +614,7 @@
       .safe-place { grid-template-columns: 1fr; gap: 40px; }
       .whybbd .grid { grid-template-columns: 1fr; gap: 40px; }
       .switched-on-flow { grid-template-columns: 1fr; }
+      .agent-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 560px) {
       body { font-size: 16px; }
@@ -588,7 +649,10 @@
     <div class="container">
       <div class="hero-inner">
         <div>
-          <span class="hero-tag"><span class="dot"></span> HubSpot AI Activation Workshop</span>
+          <span class="hero-tag">
+            <img class="breeze-mark" src="https://www.hubspot.com/hubfs/assets/hubspot.com/global-navigation/Breeze-Symbol_RGB-Gradient.svg" alt="HubSpot Breeze">
+            HubSpot AI Activation Workshop
+          </span>
           <h1>Switch on the AI you're already paying for.</h1>
           <p class="subhead">A practical, one-day HubSpot AI Activation Workshop. Start safely, inside your own portal, with no risk and no runaway bills.</p>
           <div class="hero-cta-row">
@@ -689,6 +753,60 @@
           <span class="card-num">04</span>
           <h3>What's worth it vs. what's hype</h3>
           <p>We separate <strong>what's worth it from what's hype</strong> — an honest steer, not a sales pitch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENT SHOWCASE -->
+  <section class="agents">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">
+          <img src="https://www.hubspot.com/hubfs/assets/hubspot.com/global-navigation/Breeze-Symbol_RGB-Gradient.svg" alt="" style="width:16px;height:16px;vertical-align:-3px;margin-right:6px;">
+          The agents we'll switch on
+        </span>
+        <h2>Real HubSpot Breeze agents. Running in your portal.</h2>
+      </div>
+      <div class="agent-grid">
+        <div class="agent-card">
+          <div class="thumb">
+            <img src="https://53.fs1.hubspotusercontent-na1.net/hubfs/53/spotlight/spring-2025/videos/EN/SS25%20CUSTOMER%20%26%20KB%20AGENT_Final_ENG_53.mp4/medium.jpg" alt="HubSpot Breeze Customer Agent" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="agent-label">
+              <img src="https://www.hubspot.com/hubfs/assets/hubspot.com/global-navigation/Breeze-Symbol_RGB-Gradient.svg" alt="">
+              Breeze Customer Agent
+            </span>
+            <h3>Resolves support tickets — around the clock.</h3>
+            <p>Picks up routine support questions and handles them end-to-end, so your team only sees what actually needs a human.</p>
+          </div>
+        </div>
+        <div class="agent-card">
+          <div class="thumb">
+            <img src="https://53.fs1.hubspotusercontent-na1.net/hubfs/53/spotlight/spring-2025/videos/EN/SS25_Content%20Agent_Final_ENG_53.mp4/medium.jpg" alt="HubSpot Breeze Content Agent" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="agent-label">
+              <img src="https://www.hubspot.com/hubfs/assets/hubspot.com/global-navigation/Breeze-Symbol_RGB-Gradient.svg" alt="">
+              Breeze Content Agent
+            </span>
+            <h3>Drafts content in your brand voice.</h3>
+            <p>Blog posts, social, landing pages, emails — drafted from your source material so your team starts at version five, not version one.</p>
+          </div>
+        </div>
+        <div class="agent-card">
+          <div class="thumb">
+            <img src="https://www.hubspot.com/hubfs/Spring25%20Spotlight-%20header-%20Breeze-01%20%281%29.png" alt="HubSpot Breeze Prospecting Agent" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="agent-label">
+              <img src="https://www.hubspot.com/hubfs/assets/hubspot.com/global-navigation/Breeze-Symbol_RGB-Gradient.svg" alt="">
+              Breeze Prospecting Agent
+            </span>
+            <h3>Watches for buying signals. Reaches out.</h3>
+            <p>Tracks job postings, funding rounds and tech adoption, then sources contacts and personalises outreach — automatically.</p>
+          </div>
         </div>
       </div>
     </div>
